@@ -1,0 +1,680 @@
+
+      Assignment 1
+ CREATE TABLE CLIENT_MASTER(
+    Client_No VARCHAR2(6), 
+    Name VARCHAR2(20), 
+    Address1 VARCHAR2(30), 
+    Address2 VARCHAR2(30), 
+    City VARCHAR2(15), 
+    State VARCHAR2(15), 
+    Pincode NUMBER(6), 
+    Bal_Due NUMBER(10,2) 
+);
+
+CREATE TABLE PRODUCT_MASTER(
+
+    Product_No VARCHAR2(6),
+    Description VARCHAR2(20),
+    Profit_percentage NUMBER(6),
+    Unit_Measure VARCHAR2(10),
+    Qty_On_Hand NUMBER(6),
+    Reorder_Level NUMBER(6),
+    Sell_Price NUMBER(7,2),
+    Cost_Price NUMBER(7,2)
+);
+
+ALTER TABLE CLIENT_MASTER ADD DOB DATE;
+ALTER TABLE CLIENT_MASTER MODIFY Client_No NUMBER(6);
+ALTER TABLE CLIENT_MASTER DROP COLUMN DOB;
+ALTER TABLE PRODUCT_MASTER RENAME COLUMN Sell_Price to SellPrice;
+ALTER TABLE PRODUCT_MASTER RENAME TO PRODUCTMASTER1;
+DESC PRODUCT_MASTER;
+    
+DROP TABLE CLIENT_MASTER AND PRODUCT_MASTER  ;  
+   
+DESC CLIENT_MASTER;
+
+Assignment 2
+  CREATE TABLE CLIENT_MASTER(
+    Client_No VARCHAR2(6), 
+    Name VARCHAR2(20), 
+    City VARCHAR2(15), 
+    Pincode NUMBER(6), 
+    State VARCHAR2(15), 
+    Bal_Due NUMBER(10,2) 
+);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00001', 'Ivan Bayross', 'Mumbai', '400054', 'Maharashtra', 15000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00002', 'Mamta Mazumdar', 'Madras', '780001', 'Tamil Nadu', 0);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00003', 'Chhaya Bankar', 'Mumbai', '400057', 'Maharashtra', 5000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00004', 'Ashwini Joshi', 'Bangalore', '560001', 'Karnataka', 0);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00005', 'Hansel Colaco', 'Mumbai', '400060', 'Maharashtra', 2000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00006', 'Deepak Sharma', 'Mangalore', '560050', 'Karnataka', 0);
+
+SELECT NAME FROM CLIENT_MASTER;
+SELECT * FROM CLIENT_MASTER;
+SELECT NAME, CITY, STATE FROM CLIENT_MASTER;
+SELECT * FROM CLIENT_MASTER WHERE CITY = 'Mumbai';
+SELECT * FROM CLIENT_MASTER WHERE Bal_Due = 15000;
+SELECT * FROM CLIENT_MASTER WHERE NAME LIKE 'M%';
+SELECT * FROM CLIENT_MASTER WHERE STATE IN ('Maharashtra','Karnataka');
+
+UPDATE CLIENT_MASTER SET CITY = 'Bangalore' WHERE CLIENT_NO = 'C00005';
+UPDATE CLIENT_MASTER SET Bal_Due = 1000 WHERE CLIENT_NO = 'C00001';
+UPDATE CLIENT_MASTER SET CITY = 'Pune' WHERE CLIENT_NO = 'C00001';
+
+DELETE FROM CLIENT_MASTER WHERE STATE = 'Tamil Nadu';
+DELETE FROM CLIENT_MASTER
+
+  Assignment 3
+  CREATE TABLE CLIENT_MASTER(
+    Client_No VARCHAR2(6), 
+    Name VARCHAR2(20), 
+    City VARCHAR2(15), 
+    Pincode NUMBER(6), 
+    State VARCHAR2(15), 
+    Bal_Due NUMBER(10,2) 
+);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00001', 'Ivan Bayross', 'Mumbai', '400054', 'Maharashtra', 15000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00002', 'Mamta Mazumdar', 'Madras', '780001', 'Tamil Nadu', 0);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00003', 'Chhaya Bankar', 'Mumbai', '400057', 'Maharashtra', 5000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00004', 'Ashwini Joshi', 'Bangalore', '560001', 'Karnataka', 0);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00005', 'Hansel Colaco', 'Mumbai', '400060', 'Maharashtra', 2000);
+INSERT INTO CLIENT_MASTER (Client_No, Name, City, Pincode, State, Bal_Due)
+VALUES('C00006', 'Deepak Sharma', 'Mangalore', '560050', 'Karnataka', 0);
+
+CREATE TABLE PRODUCT_MASTER(
+    ProductNo VARCHAR2(6),
+    Description VARCHAR2(15),
+    Profitpercentage NUMBER(4,2),
+    UnitMeasure VARCHAR2(10),
+    QtyOnHand NUMBER(8,2),
+    ReorderLevel NUMBER(8,2),
+    SellPrice NUMBER(8,2),
+    CostPrice NUMBER(8,2)
+);
+
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P00001', '1.44floppies', 5, 'Piece', 200, 350, 50, 250);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P03453', 'Monitors', 6, 'Piece', 150, 500, 50, 350);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P06734', 'Mouse', 5, 'Piece', 100, 600, 20, 450);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P07865', '1.22floppies', 5, 'Piece', 100, 750, 20, 500);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P07868', 'Keyboards', 2, 'Piece', 150, 850, 50, 550);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P07885', 'CDDrive', 2.5, 'Piece', 80, 700, 30, 450);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P07965', '540 HDD', 4, 'Piece', 100, 350, 40, 250);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P07975', '1.44Drive', 5, 'Piece', 70, 300, 30, 175);
+INSERT INTO PRODUCT_MASTER (ProductNo, Description, Profitpercentage, UnitMeasure, QtyOnHand, SellPrice, ReorderLevel, CostPrice)
+VALUES('P08865', '1.22Drive', 5, 'Piece', 75, 450, 30, 300);
+
+
+SELECT NAME FROM CLIENT_MASTER; 
+SELECT NAME, CITY FROM CLIENT_MASTER; 
+SELECT DESCRIPTION "AVAILABLE PRODUCTS" FROM PRODUCT_MASTER; 
+SELECT * FROM CLIENT_MASTER WHERE CITY ='Mumbai'; 
+SELECT * FROM CLIENT_MASTER WHERE CLIENT_NO IN ('C00001','C00002'); 
+SELECT * FROM PRODUCT_MASTER WHERE DESCRIPTION IN ('1.44Drive','1.22Drive');
+SELECT * FROM PRODUCT_MASTER WHERE SellPrice > 500;
+SELECT * FROM CLIENT_MASTER WHERE CITY IN ('Mumbai','Delhi','Madras'); 
+SELECT * FROM PRODUCT_MASTER WHERE SellPrice > 200 AND SellPrice <=500;
+SELECT NAME, CITY, STATE FROM CLIENT_MASTER WHERE NOT STATE = 'Maharashtra'; 
+UPDATE PRODUCT_MASTER SET SellPrice = 1150 WHERE Description = '1.44floppies';
+DELETE FROM CLIENT_MASTER WHERE CLIENT_NO = 'C00001';
+SELECT PRODUCTNO, DESCRIPTION,SELLPRICE *15 AS "ORIGINAL SELLING PRICE" FROM PRODUCT_MASTER WHERE SELLPRICE > 150;
+SELECT NAME, CITY FROM CLIENT_MASTER WHERE CITY LIKE '_a%';
+SELECT NAME FROM CLIENT_MASTER WHERE NAME LIKE '_a%';
+SELECT * FROM PRODUCT_MASTER ORDER BY DESCRIPTION;
+SELECT COUNT(DESCRIPTION) "TOTAL PRODUCTS" FROM PRODUCT_MASTER;
+SELECT AVG(COSTPRICE) AS Average_price FROM PRODUCT_MASTER;
+SELECT MIN(COSTPRICE) AS Minimum_price FROM PRODUCT_MASTER;
+SELECT MIN(COSTPRICE) AS min_price, MAX(COSTPRICE) AS max_price FROM PRODUCT_MASTER;
+SELECT COUNT(DESCRIPTION) FROM PRODUCT_MASTER WHERE COSTPRICE > 150;
+SELECT DESCRIPTION FROM PRODUCT_MASTER ORDER BY SELLPRICE ASC;
+SELECT DESCRIPTION FROM PRODUCT_MASTER ORDER BY SELLPRICE DESC;
+
+Assignment -4
+  CREATE TABLE EMPLOYEE (ID NUMBER PRIMARY KEY NOT NULL, F_NAME VARCHAR2(20), L_NAME VARCHAR2(20), DEPT VARCHAR2(20), SALARY NUMBER(15,2), DOJ DATE, ADDRESS VARCHAR2(20), MARRIED CHAR(1) );
+INSERT INTO EMPLOYEE (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(1, 'VINAY', 'KUMAR', 'MCA', 25000, TO_DATE('27-09-2001','DD-MM-YYYY'), 'GHAZIABAD', 'Y');
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(2, 'SUMAN', 'VERMA', 'MCA', 15000, TO_DATE('17-10-2006','DD-MM-YYYY'), 'MEERUT', 'Y');
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(3, 'AKASH', 'SINGH', 'CS', 20000, TO_DATE('15-01-2005','DD-MM-YYYY'), 'KANPUR', 'Y');
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(4, 'SAGAR', 'KUMAR', 'IT', 20000, TO_DATE('12-02-2019','DD-MM-YYYY'), 'GHAZIABAD', 'N');
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(5, 'ROHAN', 'SHARMA', 'CS', 21000, TO_DATE('18-09-2005','DD-MM-YYYY'), 'GHAZIABAD', NULL);
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(6, 'ROBIN', 'SINGH', 'IT', 18000, TO_DATE('22-10-2021','DD-MM-YYYY'), 'MEERUT', 'N');
+INSERT INTO Employee (ID, F_NAME, L_NAME, DEPT, SALARY, DOJ, ADDRESS, MARRIED)
+VALUES(7, 'AKASH', 'RANJAN', 'CS', 22000, TO_DATE('14-11-2019','DD-MM-YYYY'), 'GHAZIABAD', NULL);
+
+SELECT * FROM EMPLOYEE WHERE ADDRESS = 'GHAZIABAD';
+SELECT DISTINCT DEPT FROM EMPLOYEE;
+SELECT ID, F_NAME || ' ' || L_NAME AS "FULL NAME", DEPT FROM EMPLOYEE;
+SELECT INITCAP(F_NAME) || ' is working in ' || UPPER(DEPT) || ' department' AS DETAILS FROM EMPLOYEE;
+SELECT F_NAME||' '||L_NAME AS Name FROM EMPLOYEE WHERE DOJ > TO_DATE('15-01-2005','DD-MM-YYYY');
+UPDATE EMPLOYEE SET SALARY = 25000 WHERE ID = 2;
+SELECT ID, F_NAME||' '||L_NAME AS Name, SALARY*12 AS "ANNUAL SALARY" FROM EMPLOYEE;
+
+SELECT * , SALARY+300 AS "GROSS SALARY" FROM EMPLOYEE;
+SELECT * FROM EMPLOYEE WHERE SALARY BETWEEN 15000 AND 30000;
+SELECT * FROM EMPLOYEE WHERE DOJ BETWEEN TO_DATE('27-09-2001','DD-MM-YYYY') AND TO_DATE('12-02-2019','DD-MM-YYYY');
+SELECT * FROM EMPLOYEE WHERE DEPT = 'MCA' OR DEPT = 'CS';
+SELECT * FROM EMPLOYEE WHERE DEPT != 'MCA';
+SELECT * FROM EMPLOYEE WHERE F_NAME LIKE 'R%';
+SELECT * FROM EMPLOYEE WHERE F_NAME LIKE 'RO%';
+SELECT * FROM EMPLOYEE WHERE F_NAME LIKE 'R____';
+SELECT * FROM EMPLOYEE WHERE F_NAME LIKE '_O%';
+SELECT * FROM EMPLOYEE WHERE MARRIED = 'Y';
+SELECT * FROM EMPLOYEE WHERE MARRIED = 'N';
+SELECT * FROM EMPLOYEE WHERE MARRIED IS NULL;
+SELECT * FROM EMPLOYEE WHERE MARRIED = 'Y' AND DEPT = 'MCA';
+
+Assignment-5
+  CREATE TABLE Students (
+    Roll NUMBER,
+    F_Name VARCHAR2(25),
+    M_Name VARCHAR2(25),
+    L_Name VARCHAR2(25),
+    Sec CHAR(1),
+    City VARCHAR2(25),
+    Area VARCHAR2(25),
+    HouseNo VARCHAR2(25),
+    Div NUMBER
+);
+
+INSERT INTO Students (Roll, F_Name, M_Name, L_Name, Sec, City, Area, HouseNo, Div)
+VALUES (1, 'Akash', 'Kumar', 'Jian', 'A', 'Ghaziabad', 'Rakesh Marg', 'C-355', 1);
+INSERT INTO Students (Roll, F_Name, M_Name, L_Name, Sec, City, Area, HouseNo, Div)
+VALUES (2, 'Manav', 'Mohan', 'Sharma', 'A', 'Ghaziabad', 'Raj nagar', 'D-211', 2);
+INSERT INTO Students (Roll, F_Name, M_Name, L_Name, Sec, City, Area, HouseNo, Div)
+VALUES (3, 'Chandra', 'Mohan', 'Batra', 'B', 'Meerut', 'Minto Road', 'A-201', 3);
+INSERT INTO Students (Roll, F_Name, M_Name, L_Name, Sec, City, Area, HouseNo, Div)
+VALUES (4, 'Rakesh', 'Chandra', 'Gupta', 'B', 'Kanpur', 'Nehru Marg', 'A-145', NULL);
+INSERT INTO Students (Roll, F_Name, M_Name, L_Name, Sec, City, Area, HouseNo, Div)
+VALUES (5, 'Sagar', 'Pratap', 'Singh', 'A', 'Meerut', 'Gandhi marg', 'C-35', 0);
+
+SELECT ROLL, F_NAME || ' ' || M_NAME || ' ' || L_NAME AS "NAME" FROM STUDENTS;
+SELECT ROLL, F_NAME || ' ' || M_NAME || ' ' || L_NAME AS "NAME", HOUSENO || ', ' || AREA || ', ' || CITY AS "ADDRESS" FROM STUDENTS;
+SELECT ROLL, SUBSTR(F_NAME,1,1) || '.' ||SUBSTR(M_NAME,1,1) || ' ' || L_NAME AS "NAME" FROM STUDENTS;
+SELECT * FROM STUDENTS ORDER BY SEC ASC;
+SELECT * FROM STUDENTS ORDER BY SEC DESC;
+SELECT * FROM STUDENTS ORDER BY SEC, F_NAME;
+-- SELECT ROLL, F_NAME || ' ' || M_NAME || ' ' || L_NAME AS "NAME", SUBSTR(CITY,1,5) FROM STUDENTS;
+SELECT * FROM STUDENTS WHERE DIV IS NULL;
+SELECT DISTINCT CITY FROM STUDENTS;
+SELECT ROLL, F.NAME, CASE WHEN DIV = 1 THEN 'FIRST' WHEN DIV=2 THEN 'SECOND' WHEN DIV=3 THEN 'THIRD' WHEN DIV=O THEN 'FAIL' ELSE 'NOT AWARDED' END AS Division FROM STUDENTS;
+SELECT ROLL, F.NAME, CASE WHEN SEC = 'A' THEN '1' WHEN SEC= 'B' THEN '2' END AS SEC FROM STUDENTS;
+
+Assignment-6
+  CREATE TABLE CLIENT_MASTER (
+Client_No VARCHAR2(6) PRIMARY KEY,
+Name VARCHAR2(20) NOT NULL,
+CITY VARCHAR2(20) CHECK (CITY IN ('Delhi', 'Mumbai', 'Chennai')),
+Pincode NUMBER(6),
+State VARCHAR2(20),
+BALDUE NUMBER(10,2),
+Email VARCHAR2(30) UNIQUE
+);
+CREATE TABLE PRODUCT_MASTER (
+Product_No VARCHAR2(6) PRIMARY KEY,
+Name VARCHAR2(20) NOT NULL,
+UnitMeasure VARCHAR2(10) NOT NULL,
+QtyOnHand NUMBER(8) NOT NULL,
+ReorderLevel NUMBER(8) NOT NULL,
+SellPrice NUMBER(8,2) NOT NULL CHECK (SellPrice > 0),
+CostPrice NUMBER(8,2) NOT NULL CHECK (CostPrice > 0),
+CHECK (QtyOnHand >= ReorderLevel)
+);
+CREATE TABLE SALESMAN_MASTER (
+Salesman_No VARCHAR2(6) PRIMARY KEY CHECK (Salesman_No LIKE 'S%'),
+Sal_name VARCHAR2(20) NOT NULL,
+Address VARCHAR2(40) NOT NULL,
+City VARCHAR2(20),
+State VARCHAR2(20),
+Pincode NUMBER(6),
+Sal_Amount NUMBER(8,2) NOT NULL CHECK (Sal_Amount > 0),
+Tgt_to_get NUMBER(8,2) NOT NULL CHECK (Tgt_to_get > 0),
+Ytd_Sales NUMBER(8,2) NOT NULL CHECK (Ytd_Sales > 0),
+Remarks VARCHAR2(30)
+);
+CREATE TABLE SALES_ORDER (
+Order_No VARCHAR2(6) PRIMARY KEY CHECK (Order_No LIKE 'O%'),
+Order_Date DATE NOT NULL,
+Client_No VARCHAR2(6),
+Dely_add VARCHAR2(25),
+Salesman_No VARCHAR2(6),
+Dely_type CHAR(1) DEFAULT 'F' CHECK (Dely_type IN ('P', 'F')),
+Billed_yn CHAR(1) CHECK (Billed_yn IN ('Y', 'N')),
+Dely_Date DATE,
+Order_Status VARCHAR2(10) CHECK (Order_Status IN ('In Process(IP)', 'Fulfilled(F)', 'Canceled(C)')),
+FOREIGN KEY (Client_No) REFERENCES CLIENT_MASTER(Client_No),
+FOREIGN KEY (Salesman_No) REFERENCES SALESMAN_MASTER(Salesman_No),
+CHECK (Dely_Date >= Order_Date)
+);
+CREATE TABLE SALES_ORDER_DETAILS (
+Order_No VARCHAR2(6),
+Product_No VARCHAR2(6),
+Qty_Order NUMBER(8),
+Qty_disp NUMBER(8),
+PRIMARY KEY (Order_No, Product_No),
+FOREIGN KEY (Order_No) REFERENCES SALES_ORDER(Order_No),
+FOREIGN KEY (Product_No) REFERENCES PRODUCT_MASTER(Product_No)
+);
+--Data for CLIENT_MASTER
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00001', 'Pankaj Sharma', 'Delhi', 400054, 'Delhi', 15000, 'pk@gmail.com');
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00002', 'Yogesh Sharma', 'Delhi', 780001, 'Delhi', 0, 'ys@gmail.com');
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00003', 'Aditya Singh', 'Mumbai', 400057, 'Maharashtra', 5000, 'as@gmail.com');
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00004', 'Ashwini Joshi', 'Chennai', 560001, 'Tamil Nadu', 0, 'aj@gmail.com');
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00005', 'Neha Sharma', 'Mumbai', 400060, 'Maharashtra', 2000, 'ns@gmail.com');
+INSERT INTO CLIENT_MASTER (Client_No, Name, CITY, Pincode, State, BALDUE, Email)
+VALUES ('C00006', 'Divya Gupta', 'Chennai', 560050, 'Tamil Nadu', 0, NULL);
+--Data for PRODUCT_MASTER
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P00001', 'T-Shirt', 'Piece', 200, 50, 350, 250);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P03453', 'Shirt', 'Piece', 150, 50, 500, 350);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P06734', 'Cotton Jeans', 'Piece', 100, 20, 600, 450);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P07865', 'Jeans', 'Piece', 100, 20, 750, 500);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P07868', 'Trouser', 'Piece', 150, 50, 850, 550);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P07885', 'Pull Over', 'Piece', 80, 30, 700, 450);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P07965', 'Denim Shirts', 'Piece', 100, 40, 350, 250);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P07975', 'Lycra Tops', 'Piece', 70, 30, 300, 175);
+INSERT INTO PRODUCT_MASTER (Product_No, Name, UnitMeasure, QtyOnHand, ReorderLevel, SellPrice, CostPrice)
+VALUES ('P08865', 'Skirts', 'Piece', 75, 30, 450, 300);
+--Data for SALESMAN_MASTER
+INSERT INTO SALESMAN_MASTER (Salesman_No, Sal_name, Address, City, Pincode, State, Sal_Amount, Tgt_to_get, Ytd_Sales, Remarks)
+VALUES ('S00001', 'Kiran', 'A/14 worli', 'Mumbai', 400002, 'Mah', 3000, 100, 50, 'Good');
+INSERT INTO SALESMAN_MASTER (Salesman_No, Sal_name, Address, City, Pincode, State, Sal_Amount, Tgt_to_get, Ytd_Sales, Remarks)
+VALUES ('S00002', 'Manish', '65, nariman', 'Mumbai', 400001, 'Mah', 3000, 200, 100, 'Good');
+INSERT INTO SALESMAN_MASTER (Salesman_No, Sal_name, Address, City, Pincode, State, Sal_Amount, Tgt_to_get, Ytd_Sales, Remarks)
+VALUES ('S00003', 'Ravi', 'P-7 Bandra', 'Mumbai', 400032, 'Mah', 3000, 200, 100, 'Good');
+INSERT INTO SALESMAN_MASTER (Salesman_No, Sal_name, Address, City, Pincode, State, Sal_Amount, Tgt_to_get, Ytd_Sales, Remarks)
+VALUES ('S00004', 'Ashish', 'A/5 Juhu Bombay', 'Mumbai', 400044, 'Mah', 3500, 200, 150, 'Good');
+--Data for SALES_ORDER TABLE
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O19001', TO_DATE('12-jan-21', 'DD-MON-YY'), 'C00001', 'F', 'N', 'S00001', TO_DATE('20-jan-21', 'DD-MON-YY'), 'IP');
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O19002', TO_DATE('25-jan-21', 'DD-MON-YY'), 'C00002', 'P', 'N', 'S00002', TO_DATE('27-jan-21', 'DD-MON-YY'), 'C');
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O16865', TO_DATE('18-feb-21', 'DD-MON-YY'), 'C00003', 'F', 'Y', 'S00003', TO_DATE('20-feb-21', 'DD-MON-YY'), 'F');
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O19003', TO_DATE('03-apr-21', 'DD-MON-YY'), 'C00001', 'F', 'Y', 'S00001', TO_DATE('07-apr-21', 'DD-MON-YY'), 'F');
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O46866', TO_DATE('20-may-21', 'DD-MON-YY'), 'C00004', 'P', 'N', 'S00002', TO_DATE('22-may-21', 'DD-MON-YY'), 'C');
+INSERT INTO SALES_ORDER (Order_No, Order_Date, Client_No, Dely_type, Billed_yn, Salesman_No, Dely_Date, Order_Status)
+VALUES ('O10008', TO_DATE('24-may-21', 'DD-MON-YY'), 'C00005', 'F', 'N', 'S00004', TO_DATE('26-may-21', 'DD-MON-YY'), 'IP');
+--Data for SALES_ORDER_DETAILS
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19001', 'P00001', 4, 4);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19001', 'P07965', 2, 1);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19001', 'P07885', 2, 1);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19002', 'P00001', 10, 0);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O46865', 'P07868', 3, 3);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O46865', 'P07885', 10, 10);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19003', 'P00001', 4, 4);
+INSERT INTO SALES_ORDER_DETAILS (Order_No, Product_No, Qty_Order, Qty_disp)
+VALUES ('O19003', 'P03453', 2, 2);
+
+Assignment-7
+  CREATE TABLE EMPLOYEE (
+    EmpId VARCHAR2(3) PRIMARY KEY CHECK (EmpId LIKE 'E%'),
+    Ename VARCHAR2(25) NOT NULL,
+    DOB DATE NOT NULL,
+    DOJ DATE NOT NULL CHECK (DOJ > DOB),
+    Salary NUMBER(7) NOT NULL CHECK (Salary > 0),
+    Adhar NUMBER(12) UNIQUE CHECK (LENGTH(Adhar) = 12)
+);
+
+INSERT INTO EMPLOYEE (EmpId, Ename, DOB, DOJ, Salary, Adhar) VALUES ('E01', 'sumit', TO_DATE('2009-01-03', 'YYYY-MM-DD'), TO_DATE('2010-06-01', 'YYYY-MM-DD'), 50000, 123456789012);
+INSERT INTO EMPLOYEE (EmpId, Ename, DOB, DOJ, Salary, Adhar) VALUES ('E02', 'harsh', TO_DATE('2003-07-19', 'YYYY-MM-DD'), TO_DATE('2015-03-15', 'YYYY-MM-DD'), 45000, 12345678);
+SELECT * FROM EMPLOYEE WHERE DOJ = TO_DATE('2018-01-10', 'YYYY-MM-DD');
+SELECT Ename, TO_CHAR(DOJ, 'Month DD, YYYY') AS Hiredate FROM EMPLOYEE;
+SELECT * FROM EMPLOYEE WHERE DOJ < TO_DATE('2018-01-01', 'YYYY-MM-DD');
+SELECT * FROM EMPLOYEE WHERE TO_CHAR(DOJ, 'Month') = 'January';
+SELECT * FROM EMPLOYEE WHERE TO_CHAR(DOJ, 'YYYY') = '2019';
+SELECT * FROM EMPLOYEE ORDER BY DOJ DESC;
+SELECT Ename, DOJ, ROUND(MONTHS_BETWEEN(SYSDATE, DOJ) / 12, 1) AS Experience FROM EMPLOYEE;
+SELECT * FROM EMPLOYEE WHERE MOD(Salary, 2) <> 0;
+SELECT * FROM EMPLOYEE WHERE EmpId IN ('E01', 'E10') AND TO_CHAR(DOJ, 'YYYY') = '1991';
+SELECT * FROM EMPLOYEE WHERE TO_CHAR(DOJ, 'Month') != 'February';
+SELECT Ename, 'Happy Birthday!' FROM EMPLOYEE WHERE TO_CHAR(DOB, 'MM-DD') = TO_CHAR(SYSDATE, 'MM-DD');
+SELECT EmpId, Ename, TO_CHAR(DOB, 'DDth Month YYYY') AS Date_of_Birth FROM EMPLOYEE;
+
+Assignment-8
+  SELECT s.name AS salesman_name, c.cust_name AS customer_name, c.city AS customer_city
+FROM salesman s
+JOIN customer c ON s.salesman_id = c.salesman_id
+WHERE s.city = c.city;
+
+SELECT o.ord_no, o.purch_amt, c.cust_name, c.city
+FROM orders o
+JOIN customer c ON o.customer_id = c.customer_id
+WHERE o.purch_amt BETWEEN 500 AND 2000;
+
+SELECT s.name AS salesman_name, c.cust_name AS customer_name
+FROM salesman s
+JOIN customer c ON s.salesman_id = c.salesman_id;
+
+SELECT DISTINCT c.cust_name
+FROM customer c
+JOIN salesman s ON c.salesman_id = s.salesman_id
+WHERE s.commission > 0.12;
+
+SELECT DISTINCT c.cust_name
+FROM customer c
+JOIN salesman s ON c.salesman_id = s.salesman_id
+WHERE s.city <> c.city AND s.commission > 0.12;
+
+SELECT o.ord_no, o.ord_date, o.purch_amt, c.cust_name, s.name AS salesman_name, s.commission
+FROM orders o
+JOIN customer c ON o.customer_id = c.customer_id
+JOIN salesman s ON o.salesman_id = s.salesman_id;
+
+SELECT c.cust_name, c.city
+FROM customer c
+LEFT JOIN salesman s ON c.salesman_id = s.salesman_id
+ORDER BY COALESCE(s.salesman_id, 'Own');
+
+SELECT c.cust_name, c.city
+FROM customer c
+LEFT JOIN salesman s ON c.salesman_id = s.salesman_id
+WHERE c.grade < 300
+ORDER BY COALESCE(s.salesman_id, 'Own');
+
+SELECT c.cust_name, c.city, o.ord_no, o.ord_date, o.purch_amt
+FROM customer c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+ORDER BY o.ord_date;
+
+SELECT c.cust_name, c.city, o.ord_no, o.ord_date, o.purch_amt, s.name AS salesman_name, s.commission
+FROM customer c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+LEFT JOIN salesman s ON c.salesman_id = s.salesman_id
+ORDER BY o.ord_date;
+
+SELECT s.name AS salesman_name
+FROM salesman s
+LEFT JOIN customer c ON s.salesman_id = c.salesman_id
+WHERE c.customer_id IS NULL
+UNION
+SELECT s.name AS salesman_name
+FROM salesman s
+WHERE s.salesman_id NOT IN (SELECT DISTINCT c.salesman_id FROM customer c);
+
+SELECT s.name AS salesman_name
+FROM salesman s
+LEFT JOIN customer c ON s.salesman_id = c.salesman_id
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.ord_no IS NOT NULL
+GROUP BY s.name
+UNION
+SELECT s.name AS salesman_name
+FROM salesman s
+LEFT JOIN customer c ON s.salesman_id = c.salesman_id
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.ord_no IS NULL;
+
+SELECT s.name AS salesman_name
+FROM salesman s
+LEFT JOIN customer c ON s.salesman_id = c.salesman_id
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE (o.purch_amt >= 2000 OR o.purch_amt IS NULL)
+GROUP BY s.name
+UNION
+SELECT s.name AS salesman_name
+FROM salesman s
+LEFT JOIN customer c ON s.salesman_id = c.salesman_id
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE c.grade IS NULL;
+
+SELECT s.salesman_id, c.customer_id
+FROM salesman s, customer c;
+
+SELECT i.pro_name, i.pro_price, c.com_name
+FROM item_mast i
+JOIN company_mast c ON i.pro_com = c.com_id;
+
+SELECT c.com_name, AVG(i.pro_price) AS avg_price
+FROM item_mast i
+JOIN company_mast c ON i.pro_com = c.com_id
+GROUP BY c.com_name;
+
+SELECT c.com_name
+FROM item_mast i
+JOIN company_mast c ON i.pro_com = c.com_id
+GROUP BY c.com_name
+HAVING AVG(i.pro_price) >= 350;
+
+SELECT c.com_name, i.pro_name, i.pro_price
+FROM item_mast i
+JOIN company_mast c ON i.pro_com = c.com_id
+WHERE (i.pro_price = (SELECT MAX(pro_price) FROM item_mast WHERE pro_com = i.pro_com));
+
+SELECT e.emp_fname, e.emp_lname, d.dept_name
+FROM emp_details e
+JOIN emp_departmen d ON e.emp_dept = d.dpt_code;
+
+SELECT e.emp_fname, e.emp_lname, d.dept_name, d.dpt_allotment
+FROM emp_details e
+JOIN emp_departmen d ON e.emp_dept = d.dpt_code;
+
+SELECT e.emp_fname, e.emp_lname
+FROM emp_details e
+JOIN emp_departmen d ON e.emp_dept = d.dpt_code
+WHERE d.dpt_allotment > 50000;
+
+SELECT d.dept_name
+FROM emp_details e
+JOIN emp_departmen d ON e.emp_dept = d.dpt_code
+GROUP BY d.dept_name
+HAVING COUNT(e.emp_idno) > 2;
+
+Assignment-9
+  SELECT SUM(purch_amt) AS total_purchase_amount FROM orders;
+SELECT AVG(purch_amt) AS average_purchase_amount FROM orders;
+SELECT COUNT(DISTINCT salesman_id) AS number_of_salespeople FROM salesman;
+SELECT MAX(purch_amt) AS max_purchase_amount FROM orders;
+SELECT MIN(purch_amt) AS min_purchase_amount FROM orders;
+SELECT customer_id, MAX(purch_amt) AS max_purchase_amount FROM orders GROUP BY customer_id;
+SELECT ord_date, MAX(purch_amt) AS max_purchase_amount FROM orders GROUP BY ord_date;
+SELECT salesman_id, MAX(purch_amt) AS max_purchase_amount FROM orders WHERE ord_date = '2012-08-17' GROUP BY salesman_id;
+SELECT customer_id, ord_date, MAX(purch_amt) AS max_purchase_amount FROM orders WHERE MAX(purch_amt) > 2000.00 GROUP BY customer_id, ord_date;
+SELECT customer_id, ord_date, MAX(purch_amt) AS max_purchase_amount FROM orders WHERE MAX(purch_amt) BETWEEN 2000 AND 6000 GROUP BY customer_id, ord_date;
+SELECT customer_id, MAX(purch_amt) AS max_purchase_amount FROM orders WHERE customer_id BETWEEN 3002 AND 3007 GROUP BY customer_id;
+SELECT COUNT(*) AS number_of_customers FROM customer;
+SELECT COUNT(*) AS number_of_customers_with_grade FROM customer WHERE grade IS NOT NULL;
+SELECT city, MAX(grade) AS maximum_grade FROM customer GROUP BY city;
+SELECT COUNT(*) AS number_of_salespeople_per_city FROM salesman GROUP BY city;
+SELECT COUNT(*) AS number_of_products_above_350 FROM item_mast WHERE PRO_PRICE >= 350;
+SELECT MAX(DOJ) AS latest_joining_date FROM Employee;
+SELECT MIN(DOJ) AS first_joining_date FROM Employee;
+SELECT COUNT(DISTINCT Dept) AS number_of_departments FROM Employee;
+SELECT COUNT(*) AS number_of_employees_in_MCA_department FROM Employee WHERE Dept = 'MCA';
+SELECT Dept, MAX(Salary) AS max_average_salary FROM Employee GROUP BY Dept;
+SELECT COUNT(*) AS total_number_of_employees FROM Employee;
+SELECT Dept, COUNT(*) AS number_of_employees FROM Employee GROUP BY Dept;
+
+Assignment-10
+  SELECT Name
+FROM Employee
+WHERE Salary > (SELECT Salary FROM Employee WHERE EmpId = 104);
+
+SELECT Name, Salary, JobId
+FROM Employee
+WHERE JobId = (SELECT JobId FROM Employee WHERE EmpId = 103);
+
+SELECT Name, Salary, JobId
+FROM Employee
+WHERE Salary = (SELECT MIN(Salary) FROM Employee);
+
+SELECT *
+FROM Employee
+WHERE DOJ = (SELECT DOJ FROM Employee WHERE EmpId = 106);
+
+SELECT *
+FROM Employee
+WHERE DOJ > (SELECT DOJ FROM Employee WHERE EmpId = 102);
+
+Assignment-11
+  CREATE OR REPLACE PROCEDURE find_minimum (
+    num1 IN NUMBER,
+    num2 IN NUMBER,
+    min_value OUT NUMBER
+) IS
+BEGIN
+    IF num1 < num2 THEN
+        min_value := num1;
+    ELSE
+        min_value := num2;
+    END IF;
+END;
+
+
+DECLARE
+    num1 NUMBER := 10;
+    num2 NUMBER := 20;
+    result NUMBER;
+BEGIN
+    find_minimum(num1, num2, result);
+    DBMS_OUTPUT.PUT_LINE('The minimum value is: ' || result);
+END;
+
+
+
+CREATE OR REPLACE PROCEDURE squareNum (
+   x IN OUT number
+) IS
+BEGIN
+    x := x*x;
+    END ;
+
+DECLARE
+    a number;
+BEGIN
+a:= 23;
+squareNum(a);
+DBMS_OUTPUT.PUT_LINE('The square value is: ' || a);
+END;
+
+
+create or replace function total1
+return number is
+total number(2) := 0;
+
+begin
+ select count(*) into total
+ from dual;
+
+return total;
+end;
+
+declare c number(2);
+begin
+ c:= total1();
+ DBMS_OUTPUT.PUT_LINE('The total value is: ' || c);
+end;
+
+DECLARE 
+a number;
+b number;
+c number;
+
+FUNCTION find_min (num1 in number,
+    return number is
+    z number;
+
+BEGIN
+    IF num1 < num2 THEN
+        c := num1;
+    ELSE
+        c := num2;
+    END IF;
+END;
+
+DROP FUNCTION FUNCTION_NAME
+
+                   Assignment-12
+                   CREATE TABLE supplier (
+    supplier_id NUMBER PRIMARY KEY,
+    supplier_name VARCHAR2(4000),
+    supplier_address VARCHAR2(4000)
+);
+
+CREATE TABLE audits (
+    table_name VARCHAR2(100),
+    transaction_name VARCHAR2(100),
+    transaction_date DATE
+);
+INSERT INTO supplier (supplier_id, supplier_name, supplier_address)
+VALUES (1, 'ABC Suppliers', '123 Main Street');
+
+INSERT INTO supplier (supplier_id, supplier_name, supplier_address)
+VALUES (2, 'XYZ Enterprises', '456 Elm Avenue');
+
+SELECT * FROM supplier;
+CREATE OR REPLACE TRIGGER cust_audit_trig
+AFTER
+INSERT
+ON supplier
+FOR EACH ROW
+DECLARE
+    l_transaction VARCHAR(10);
+BEGIN
+    l_transaction := 'INSERT';
+    INSERT INTO audits (table_name, transaction_name, transaction_date)
+    VALUES ('SUPPLIER', l_transaction, SYSDATE);
+END;
+INSERT INTO supplier (supplier_id, supplier_name, supplier_address)
+VALUES (3, 'Book Suppliers', '12 Street');
+
+SELECT * FROM audits;
+
+
+DECLARE
+    total_rows NUMBER(2);
+BEGIN
+    UPDATE supplier
+    SET supplier_id = supplier_id + 500;
+    IF SQL%NOTFOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Not found');
+    ELSIF SQL%FOUND THEN 
+        total_rows := SQL%ROWCOUNT;
+        DBMS_OUTPUT.PUT_LINE(total_rows || ' row(s) updated');
+    END IF;
+END;
+                   
